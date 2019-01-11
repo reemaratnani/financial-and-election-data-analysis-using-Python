@@ -11,7 +11,7 @@ with open('budget_data.csv','r') as csvfile:
     Average_change = sum(Rev_change)/len(Rev_change)
     MaxRev_change = max(Rev_change)
     MinRev_change = min(Rev_change)
-    #Reset the curson position, skip header row then skip first row of Date, date column to pair with Rev-change and found max and min rev-change date
+    #Reset the cursor position, skip header row then skip first row of Date, date column to pair with Rev-change and found max and min rev-change date
     csvfile.seek(0)
     next(csvfile)
     next(csvfile)
@@ -19,7 +19,9 @@ with open('budget_data.csv','r') as csvfile:
     MaxRev_change_Date = Date[Rev_change.index(max(Rev_change))]
     MinRev_change_Date = Date[Rev_change.index(min(Rev_change))]
     
-    # printing the analysis report
+    # To print the analysis report
+    print("Financial Analysis")
+    print("------------------------------")
     print(f"Total Months: {Month_count}")
     print(f"Total:  ${Total}")
     print(f"Average Change: ${round(Average_change, 2)}")
