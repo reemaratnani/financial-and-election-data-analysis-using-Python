@@ -11,12 +11,12 @@ with open('budget_data.csv','r') as csvfile:
     Average_change = sum(Rev_change)/len(Rev_change)
     MaxRev_change = max(Rev_change)
     MinRev_change = min(Rev_change)
-    #Reset the cursor position, skip header row then skip first row of Date, date column to pair with Rev-change and found max and min rev-change date
+    #Reset the cursor position on csv file, skip header row then skip first row of Date, date column to pair with Rev-change and found max and min rev-change date
     csvfile.seek(0)
     next(csvfile)
     next(csvfile)
-    Date = [str(r[0]) for r in csv_reader]
-    MaxRev_change_Date = Date[Rev_change.index(max(Rev_change))]
+    Date = [str(r[0]) for r in csv_reader] # prepared list of date in order to find the max and min Revenue change date
+    MaxRev_change_Date = Date[Rev_change.index(max(Rev_change))] #Match the date index with max and min revenue change list
     MinRev_change_Date = Date[Rev_change.index(min(Rev_change))]
     
     # To print the analysis report
